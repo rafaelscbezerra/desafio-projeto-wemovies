@@ -2,21 +2,18 @@
 import Header from "./components/Header";
 import MovieCards from "./components/MovieCards";
 
+//Styles
 import * as S from "./styles/pages/home";
 
 function App() {
   return (
     <>
       <S.StyledContainer>
-        <S.StyledHeader>
-          <Header></Header>
-        </S.StyledHeader>
+        <Header></Header>
       </S.StyledContainer>
 
       <S.StyledContainer>
-        <S.StyledMovieCardsGrid>
-          <MovieCards></MovieCards>
-        </S.StyledMovieCardsGrid>
+        <MovieCards></MovieCards>
       </S.StyledContainer>
     </>
   );

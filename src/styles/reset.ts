@@ -30,6 +30,7 @@ const ResetStyles = createGlobalStyle`
 
  p {
   margin: unset;
+ }
 
  * {
    box-sizing: border-box;

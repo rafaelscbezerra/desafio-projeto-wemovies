@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
+
+//Styles
+import { StyledMovieCardsGrid } from "../styles/components/MovieCards";
+
+//Components
 import Button from "./Button";
-import { StyledButtonPrimary } from "../styles/pages/home";
 
 interface Movie {
   id: string;
@@ -28,24 +32,25 @@ const MovieCards: React.FC = () => {
 
   return (
     <>
-      {movies.map((movie) => (
-        <li className="movie--list--item" key={movie.id}>
-          <img
-            className="movie--list--item__image"
-            src={movie.image}
-            alt={movie.title}
-          />
-          <div className="movie--list--item__texts">
-            <p className="movie--list--item__texts__title">{movie.title}</p>
-            <span className="movie--list--item__texts__value">
-              Preço: R$ {movie.price.toFixed(2)}
-            </span>
-          </div>
-          <StyledButtonPrimary>
+      <StyledMovieCardsGrid>
+        {movies.map((movie) => (
+          <li className="movie--list--item" key={movie.id}>
+            <img
+              className="movie--list--item__image"
+              src={movie.image}
+              alt={movie.title}
+            />
+            <div className="movie--list--item__texts">
+              <p className="movie--list--item__texts__title">{movie.title}</p>
+              <span className="movie--list--item__texts__value">
+                Preço: R$ {movie.price.toFixed(2)}
+              </span>
+            </div>
+
             <Button></Button>
-          </StyledButtonPrimary>
-        </li>
-      ))}
+          </li>
+        ))}
+      </StyledMovieCardsGrid>
     </>
   );
 };

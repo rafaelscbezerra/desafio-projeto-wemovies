@@ -26,6 +26,9 @@ const ResetStyles = createGlobalStyle`
    appearance: none;
    border: unset;
    cursor: pointer;
+   background: unset;
+   padding-inline: unset;
+   padding-block: unset;
  }
 
  p {

@@ -9,7 +9,9 @@ import {
 
 import Header from "./components/Header";
 import MovieCards from "./components/MovieCards";
-import CartPage from "./components/CartPage";
+import CartPage from "./CartPage";
+import SuccessBuyPage from "./SuccessBuyPage";
+
 import * as S from "./styles/pages/home";
 export interface Movie {
   id: string;
@@ -71,6 +73,7 @@ function App() {
               )
             }
           />
+          <Route path="/compra-realizada" element={<SuccessBuyPage />} />
         </Routes>
       </S.StyledContainer>
     </Router>

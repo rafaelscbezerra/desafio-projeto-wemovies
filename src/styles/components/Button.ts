@@ -12,18 +12,13 @@ export const StyledButtonPrimary = styled.button`
   transition: all 0.3s ease;
 
   &:hover {
-    background: #2f2e41;
+    background: #039b00;
   }
 
   .mini-cart--infos {
     display: flex;
     align-items: center;
     gap: 3px;
-
-    &__icon {
-      width: 14px;
-      height: 14px;
-    }
 
     &__counter {
       color: #ffffff;

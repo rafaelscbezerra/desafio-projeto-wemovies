@@ -1,7 +1,39 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
+interface AppCartItem {
+  id: string;
+  title: string;
+  price: number;
+  quantity: number;
+  image: string;
+}
+
 //Styles
 import { StyledHeader } from "../styles/components/Header";
 
-function Header() {
+interface HeaderProps {
+  cartItems: AppCartItem[];
+}
+
+function Header({ cartItems }: HeaderProps) {
+  const navigate = useNavigate();
+
+  const handleCartClick = (
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => {
+    event.preventDefault();
+    if (cartItems.length > 0) {
+      navigate("/meu-carrinho");
+    } else {
+      navigate("/carrinho-vazio");
+    }
+  };
+
+  const totalItems = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
+
   return (
     <>
       <StyledHeader>
@@ -9,10 +41,12 @@ function Header() {
           WeMovies
         </a>
 
-        <a href="/" className="cart--infos">
+        <a href="/" className="cart--infos" onClick={handleCartClick}>
           <div className="cart--infos--text">
             <p className="cart--infos--text__title">Meu Carrinho</p>
-            <span className="cart--infos--text__description">0 itens</span>
+            <span className="cart--infos--text__description">
+              {totalItems} {totalItems === 1 ? "item" : "itens"}
+            </span>
           </div>
 
           <svg

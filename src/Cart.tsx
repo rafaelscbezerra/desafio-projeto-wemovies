@@ -188,9 +188,12 @@ const Cart: React.FC<CartProps> = ({ cartItems, setCartItems }) => {
                         </button>
                       </div>
 
-                      <p className="movie--list--item__subtotal">
-                        R$ {(subtotals[item.id] || 0).toFixed(2)}
-                      </p>
+                      <div className="movie--list--item__subtotal__mobile">
+                        <p className="cart--content--header__text">Subtotal</p>
+                        <p className="movie--list--item__subtotal">
+                          R$ {(subtotals[item.id] || 0).toFixed(2)}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>

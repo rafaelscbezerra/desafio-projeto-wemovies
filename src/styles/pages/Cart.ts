@@ -118,7 +118,6 @@ export const StyledCart = styled.div`
         @media (max-width: 700px) {
           width: 100%;
           flex: unset;
-          align-items: flex-start;
           gap: 16px;
         }
 
@@ -220,6 +219,12 @@ export const StyledCart = styled.div`
         font-size: ${({ theme }) => theme.fontSizes.medium};
         font-weight: ${({ theme }) => theme.fontWeight.bold};
         line-height: ${({ theme }) => theme.lineHeight.medium};
+
+        &__mobile {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+        }
       }
 
       &__remove {

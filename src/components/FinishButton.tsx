@@ -3,16 +3,16 @@ import React from "react";
 //Styles
 import { StyledFinishButton } from "../styles/components/FinishButton";
 
-interface ButtonProps {
+interface FinishButtonProps {
   onClick: () => void;
 }
 
-const Button: React.FC<ButtonProps> = ({ onClick }) => {
+const FinishButton: React.FC<FinishButtonProps> = ({ onClick }) => {
   return (
     <StyledFinishButton onClick={onClick}>
-      <p className="label-button">Finalizar pedido</p>
+      <p className="label--button">Finalizar pedido</p>
     </StyledFinishButton>
   );
 };
 
-export default Button;
+export default FinishButton;

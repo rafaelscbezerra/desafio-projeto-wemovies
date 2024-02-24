@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-export const StyledSuccessBuyPage = styled.div`
+export const StyledBuyConditions = styled.div`
   padding: 28px 0 76px;
 
-  .success--buy--content {
+  .buy--conditions--content {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,9 +19,15 @@ export const StyledSuccessBuyPage = styled.div`
       line-height: 27px;
     }
 
-    &__image {
+    .success--buy--image {
       width: 295px;
       height: 307px;
+      animation: moveImage 4s linear infinite;
+    }
+
+    .empty--cart--image {
+      width: 447px;
+      height: 266px;
       animation: moveImage 4s linear infinite;
     }
 

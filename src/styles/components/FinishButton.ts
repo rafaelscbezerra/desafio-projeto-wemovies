@@ -15,25 +15,4 @@ export const StyledFinishButton = styled.button`
   &:hover {
     background: #039b00;
   }
-
-  .mini-cart--infos {
-    display: flex;
-    align-items: center;
-    gap: 3px;
-
-    &__counter {
-      color: #ffffff;
-      font-size: 12px;
-      font-weight: 400;
-      line-height: 16px;
-    }
-  }
-
-  .label-button {
-    color: #ffffff;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 16px;
-    text-transform: uppercase;
-  }
 `;

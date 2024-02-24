@@ -1,6 +1,10 @@
 import { createGlobalStyle } from "styled-components";
 
 const ResetStyles = createGlobalStyle`
+ * {
+   box-sizing: border-box;
+ }
+ 
  html,
  body {
    font-family: 'Open Sans', sans-serif;
@@ -25,19 +29,23 @@ const ResetStyles = createGlobalStyle`
    font-family: 'Open Sans', sans-serif;
    appearance: none;
    border: unset;
-   cursor: pointer;
    background: unset;
    padding-inline: unset;
    padding-block: unset;
- }
+   cursor: pointer;
+  }
 
  p {
   margin: unset;
  }
 
- * {
-   box-sizing: border-box;
- }
+ .label--button {
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    text-transform: uppercase;
+  }
 `;
 
 export default ResetStyles;

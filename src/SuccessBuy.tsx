@@ -1,18 +1,22 @@
 import React from "react";
-import BackButton from "./components/BackButton";
-import { StyledSuccessBuyPage } from "./styles/pages/SuccessBuyPage";
 import { Link } from "react-router-dom";
+
+//Components
+import BackButton from "./components/BackButton";
+
+//Styles
+import { StyledBuyConditions } from "./styles/pages/BuyConditions";
 
 const SuccessBuyPage: React.FC = () => {
   return (
     <>
-      <StyledSuccessBuyPage>
-        <div className="success--buy--content">
-          <p className="success--buy--content__title">
+      <StyledBuyConditions>
+        <div className="buy--conditions--content">
+          <p className="buy--conditions--content__title">
             Compra realizada com sucesso!
           </p>
           <img
-            className="success--buy--content__image"
+            className="success--buy--image"
             src="/src/assets/success-buy-image.svg"
             alt="imagem de compra realizada com sucesso!"
           />
@@ -21,7 +25,7 @@ const SuccessBuyPage: React.FC = () => {
             <BackButton />
           </Link>
         </div>
-      </StyledSuccessBuyPage>
+      </StyledBuyConditions>
     </>
   );
 };

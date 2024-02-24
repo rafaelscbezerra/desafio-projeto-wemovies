@@ -1,9 +1,64 @@
 import styled from "styled-components";
 
-export const StyledCartPage = styled.div`
+export const StyledCart = styled.div`
   display: flex;
   flex-direction: column;
   padding: 28px 0 76px;
+
+  .cart--content {
+    border-radius: 4px;
+    background: #ffffff;
+    padding: 24px;
+
+    &--header {
+      max-width: 674px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 134px;
+      padding-bottom: 21px;
+
+      &__text {
+        color: #999999;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 19px;
+        text-transform: uppercase;
+
+        &:first-of-type {
+          flex: 1;
+        }
+      }
+    }
+
+    &--totals {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &__texts {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+
+        &__title {
+          color: #999999;
+          font-size: 14px;
+          font-weight: 700;
+          line-height: 19px;
+          text-transform: uppercase;
+        }
+
+        &__value {
+          color: #2f2e41;
+          font-size: 24px;
+          font-weight: 700;
+          line-height: 33px;
+        }
+      }
+    }
+  }
 
   .movie--list {
     &--item {
@@ -105,61 +160,6 @@ export const StyledCartPage = styled.div`
         svg path {
           fill: #009edd;
           transition: all 0.3s ease;
-        }
-      }
-    }
-  }
-
-  .cart--page--content {
-    border-radius: 4px;
-    background: #ffffff;
-    padding: 24px;
-
-    &--header {
-      max-width: 674px;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 134px;
-      padding-bottom: 21px;
-
-      &__text {
-        color: #999999;
-        font-size: 14px;
-        font-weight: 700;
-        line-height: 19px;
-        text-transform: uppercase;
-
-        &:first-of-type {
-          flex: 1;
-        }
-      }
-    }
-
-    &--totals {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      &__texts {
-        display: flex;
-        align-items: center;
-        gap: 32px;
-
-        &__title {
-          color: #999999;
-          font-size: 14px;
-          font-weight: 700;
-          line-height: 19px;
-          text-transform: uppercase;
-        }
-
-        &__value {
-          color: #2f2e41;
-          font-size: 24px;
-          font-weight: 700;
-          line-height: 33px;
         }
       }
     }

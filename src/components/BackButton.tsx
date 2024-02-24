@@ -3,16 +3,12 @@ import React from "react";
 //Styles
 import { StyledBackButton } from "../styles/components/BackButton";
 
-interface ButtonProps {
-  // onClick: () => void;
-}
-
-const Button: React.FC<ButtonProps> = ({}) => {
+const BackButton: React.FC = () => {
   return (
     <StyledBackButton>
-      <p className="label-button">Voltar</p>
+      <p className="label--button">Voltar</p>
     </StyledBackButton>
   );
 };
 
-export default Button;
+export default BackButton;

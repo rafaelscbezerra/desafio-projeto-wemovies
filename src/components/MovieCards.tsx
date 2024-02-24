@@ -1,24 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { StyledMovieCardsGrid } from "../styles/components/MovieCards";
-import Button from "./Button";
 
-interface Movie {
-  id: string;
-  title: string;
-  price: number;
-  image: string;
-  quantity: number;
-}
-interface AppCartItem {
-  id: string;
-  title: string;
-  price: number;
-  quantity: number;
-  image: string;
-}
+//Components
+import AddCartButton from "./AddCartButton";
+
+//Types
+import { Movie } from "../types";
+import { CartItem } from "../types";
+
+//Styles
+import { StyledMovieCards } from "../styles/components/MovieCards";
+
 interface MovieCardsProps {
-  cartItems: AppCartItem[];
-  setCartItems: React.Dispatch<React.SetStateAction<AppCartItem[]>>;
+  cartItems: CartItem[];
+  setCartItems: React.Dispatch<React.SetStateAction<CartItem[]>>;
 }
 
 const MovieCards: React.FC<MovieCardsProps> = ({ setCartItems }) => {
@@ -29,11 +23,11 @@ const MovieCards: React.FC<MovieCardsProps> = ({ setCartItems }) => {
       try {
         const response = await fetch("http://localhost:3000/products");
         const data: Movie[] = await response.json();
-        const moviesWithQuantity = data.map((movie) => ({
+        const moviesQuantity = data.map((movie) => ({
           ...movie,
           quantity: 0,
         }));
-        setMovies(moviesWithQuantity);
+        setMovies(moviesQuantity);
       } catch (error) {
         console.error("Ocorreu um erro ao buscar os filmes:", error);
       }
@@ -52,7 +46,7 @@ const MovieCards: React.FC<MovieCardsProps> = ({ setCartItems }) => {
 
   return (
     <>
-      <StyledMovieCardsGrid>
+      <StyledMovieCards>
         {movies.map((movie) => (
           <li className="movie--list--item" key={movie.id}>
             <img
@@ -67,13 +61,13 @@ const MovieCards: React.FC<MovieCardsProps> = ({ setCartItems }) => {
               </span>
             </div>
 
-            <Button
+            <AddCartButton
               onClick={() => handleAddToCart(movie.id)}
               cartQuantity={movie.quantity}
             />
           </li>
         ))}
-      </StyledMovieCardsGrid>
+      </StyledMovieCards>
     </>
   );
 };

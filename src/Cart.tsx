@@ -1,37 +1,80 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { StyledCartPage } from "./styles/pages/CartPage";
+
+//Components
 import FinishButton from "./components/FinishButton";
 
-interface AppCartItem {
-  id: string;
-  title: string;
-  price: number;
-  quantity: number;
-  image: string;
+//Types
+import { CartItem } from "./types";
+
+//Styles
+import { StyledCart } from "./styles/pages/Cart";
+
+interface CartProps {
+  cartItems: CartItem[];
+  setCartItems: React.Dispatch<React.SetStateAction<CartItem[]>>;
 }
 
-interface CartPageProps {
-  cartItems: AppCartItem[];
-  setCartItems: React.Dispatch<React.SetStateAction<AppCartItem[]>>;
-}
-
-const CartPage: React.FC<CartPageProps> = ({ cartItems }) => {
+const Cart: React.FC<CartProps> = ({ cartItems, setCartItems }) => {
   const navigate = useNavigate();
   const selectedItems = cartItems.filter((item) => item.quantity > 0);
+  const [subtotals, setSubtotals] = useState<{ [key: string]: number }>({});
+
+  const handleIncrementQuantity = (id: string) => {
+    const updatedCartItems = cartItems.map((item) =>
+      item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+    );
+    setCartItems(updatedCartItems);
+  };
+
+  const handleDecrementQuantity = (id: string) => {
+    const updatedCartItems = cartItems.map((item) =>
+      item.id === id && item.quantity > 0
+        ? { ...item, quantity: item.quantity - 1 }
+        : item
+    );
+    setCartItems(updatedCartItems);
+  };
+
+  const handleRemoveItem = (id: string) => {
+    const updatedCartItems = cartItems.filter((item) => item.id !== id);
+    setCartItems(updatedCartItems);
+  };
+
+  const calculateSubtotal = (quantity: number, price: number) => {
+    return quantity * price;
+  };
+
+  const updateSubtotals = () => {
+    const updatedSubtotals: { [key: string]: number } = {};
+    selectedItems.forEach((item) => {
+      updatedSubtotals[item.id] = calculateSubtotal(item.quantity, item.price);
+    });
+    setSubtotals(updatedSubtotals);
+  };
 
   const handleFinishButtonClick = () => {
     navigate("/compra-realizada");
   };
 
+  React.useEffect(() => {
+    updateSubtotals();
+  }, [cartItems]);
+
+  React.useEffect(() => {
+    if (selectedItems.length === 0) {
+      navigate("/carrinho-vazio", { replace: true });
+    }
+  }, [selectedItems, navigate]);
+
   return (
     <>
-      <StyledCartPage>
-        <div className="cart--page--content">
-          <div className="cart--page--content--header">
-            <p className="cart--page--content--header__text">Produto</p>
-            <p className="cart--page--content--header__text">Qtde</p>
-            <p className="cart--page--content--header__text">Subtotal</p>
+      <StyledCart>
+        <div className="cart--content">
+          <div className="cart--content--header">
+            <p className="cart--content--header__text">Produto</p>
+            <p className="cart--content--header__text">Qtde</p>
+            <p className="cart--content--header__text">Subtotal</p>
           </div>
           <ul className="movie--list">
             {selectedItems.map((item, index) => (
@@ -54,7 +97,10 @@ const CartPage: React.FC<CartPageProps> = ({ cartItems }) => {
 
                 <div className="movie--list--item__wrapper">
                   <div className="movie--list--item__quantity">
-                    <button className="movie--list--item__quantity__options">
+                    <button
+                      className="movie--list--item__quantity__options"
+                      onClick={() => handleDecrementQuantity(item.id)}
+                    >
                       <svg
                         className="movie--list--item__quantity__options__minus"
                         width="18"
@@ -74,7 +120,10 @@ const CartPage: React.FC<CartPageProps> = ({ cartItems }) => {
                       {item.quantity}
                     </span>
 
-                    <button className="movie--list--item__quantity__options">
+                    <button
+                      className="movie--list--item__quantity__options"
+                      onClick={() => handleIncrementQuantity(item.id)}
+                    >
                       <svg
                         className="movie--list--item__quantity__options__plus"
                         width="18"
@@ -92,11 +141,14 @@ const CartPage: React.FC<CartPageProps> = ({ cartItems }) => {
                   </div>
 
                   <p className="movie--list--item__subtotal">
-                    R$ {item.price.toFixed(2)}
+                    R$ {(subtotals[item.id] || 0).toFixed(2)}
                   </p>
                 </div>
 
-                <button className="movie--list--item__remove">
+                <button
+                  className="movie--list--item__remove"
+                  onClick={() => handleRemoveItem(item.id)}
+                >
                   <svg
                     width="19"
                     height="18"
@@ -114,22 +166,26 @@ const CartPage: React.FC<CartPageProps> = ({ cartItems }) => {
             ))}
           </ul>
 
-          <div className="cart--page--content--totals">
+          <div className="cart--content--totals">
             <FinishButton onClick={handleFinishButtonClick} />
 
-            <div className="cart--page--content--totals__texts">
-              <span className="cart--page--content--totals__texts__title">
-                Total
-              </span>
-              <span className="cart--page--content--totals__texts__value">
-                R$ 29,90
+            <div className="cart--content--totals__texts">
+              <span className="cart--content--totals__texts__title">Total</span>
+              <span className="cart--content--totals__texts__value">
+                R${" "}
+                {(
+                  Object.values(subtotals).reduce(
+                    (acc, curr) => acc + curr,
+                    0
+                  ) || 0
+                ).toFixed(2)}
               </span>
             </div>
           </div>
         </div>
-      </StyledCartPage>
+      </StyledCart>
     </>
   );
 };
 
-export default CartPage;
+export default Cart;

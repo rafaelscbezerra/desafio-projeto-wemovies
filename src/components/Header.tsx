@@ -1,18 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-interface AppCartItem {
-  id: string;
-  title: string;
-  price: number;
-  quantity: number;
-  image: string;
-}
+
+//Types
+import { CartItem } from "../types";
 
 //Styles
 import { StyledHeader } from "../styles/components/Header";
 
 interface HeaderProps {
-  cartItems: AppCartItem[];
+  cartItems: CartItem[];
 }
 
 function Header({ cartItems }: HeaderProps) {
@@ -37,14 +33,14 @@ function Header({ cartItems }: HeaderProps) {
   return (
     <>
       <StyledHeader>
-        <a className="company-name" href="/">
+        <a className="company--name" href="/">
           WeMovies
         </a>
 
         <a href="/" className="cart--infos" onClick={handleCartClick}>
-          <div className="cart--infos--text">
-            <p className="cart--infos--text__title">Meu Carrinho</p>
-            <span className="cart--infos--text__description">
+          <div className="cart--infos__texts">
+            <p className="cart--infos__texts__title">Meu Carrinho</p>
+            <span className="cart--infos__texts__description">
               {totalItems} {totalItems === 1 ? "item" : "itens"}
             </span>
           </div>

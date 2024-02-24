@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledMovieCardsGrid = styled.ul`
+export const StyledMovieCards = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;

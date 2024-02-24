@@ -14,12 +14,4 @@ export const StyledBackButton = styled.button`
   &:hover {
     background: #039b00;
   }
-
-  .label-button {
-    color: #ffffff;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 16px;
-    text-transform: uppercase;
-  }
 `;

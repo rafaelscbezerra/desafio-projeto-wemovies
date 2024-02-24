@@ -6,7 +6,7 @@ export const StyledHeader = styled.header`
   justify-content: space-between;
   padding: 16px;
 
-  .company-name {
+  .company--name {
     color: #fff;
     font-size: 20px;
     font-weight: 700;
@@ -26,7 +26,7 @@ export const StyledHeader = styled.header`
 
     &:hover {
       .cart--infos {
-        &--text {
+        &__texts {
           &__description {
             color: #fff;
           }
@@ -38,7 +38,7 @@ export const StyledHeader = styled.header`
       }
     }
 
-    &--text {
+    &__texts {
       display: flex;
       flex-direction: column;
       align-items: flex-end;

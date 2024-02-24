@@ -2,45 +2,42 @@ import { useState, useEffect } from "react";
 
 import {
   BrowserRouter as Router,
+  Link,
   Navigate,
   Route,
   Routes,
 } from "react-router-dom";
 
+//Pages
+import Cart from "./Cart";
+import SuccessBuy from "./SuccessBuy";
+
+//Components
 import Header from "./components/Header";
 import MovieCards from "./components/MovieCards";
-import CartPage from "./CartPage";
-import SuccessBuyPage from "./SuccessBuyPage";
+import BackButton from "./components/BackButton";
 
-import * as S from "./styles/pages/home";
-export interface Movie {
-  id: string;
-  title: string;
-  price: number;
-  image: string;
-  quantity: number;
-}
-interface AppCartItem {
-  id: string;
-  title: string;
-  price: number;
-  quantity: number;
-  image: string;
-}
+//Types
+import { Movie } from "./types";
+import { CartItem } from "./types";
+
+//Styles
+import { StyledBuyConditions } from "./styles/pages/BuyConditions";
+import { StyledContainer } from "./styles/container";
 
 function App() {
-  const [cartItems, setCartItems] = useState<AppCartItem[]>([]);
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
   useEffect(() => {
     const fetchMovies = async () => {
       try {
         const response = await fetch("http://localhost:3000/products");
         const data: Movie[] = await response.json();
-        const moviesWithQuantity = data.map((movie) => ({
+        const moviesQuantity = data.map((movie) => ({
           ...movie,
           quantity: 0,
         }));
-        setCartItems(moviesWithQuantity);
+        setCartItems(moviesQuantity);
       } catch (error) {
         console.error("Ocorreu um erro ao buscar os filmes:", error);
       }
@@ -51,11 +48,11 @@ function App() {
 
   return (
     <Router>
-      <S.StyledContainer>
+      <StyledContainer>
         <Header cartItems={cartItems} />
-      </S.StyledContainer>
+      </StyledContainer>
 
-      <S.StyledContainer>
+      <StyledContainer>
         <Routes>
           <Route
             path="/"
@@ -67,17 +64,41 @@ function App() {
             path="/meu-carrinho"
             element={
               cartItems.length > 0 ? (
-                <CartPage cartItems={cartItems} setCartItems={setCartItems} />
+                <Cart cartItems={cartItems} setCartItems={setCartItems} />
               ) : (
-                <Navigate to="/carrinho-vazio" replace />
+                <Navigate to="/carrinho-vazio" replace={true} />
               )
             }
           />
-          <Route path="/compra-realizada" element={<SuccessBuyPage />} />
+          <Route path="/compra-realizada" element={<SuccessBuy />} />
+          <Route path="/carrinho-vazio" element={<EmptyCart />} />
         </Routes>
-      </S.StyledContainer>
+      </StyledContainer>
     </Router>
   );
 }
+
+const EmptyCart = () => {
+  return (
+    <>
+      <StyledBuyConditions>
+        <div className="buy--conditions--content">
+          <p className="buy--conditions--content__title">
+            Parece que não há nada por aqui :(
+          </p>
+          <img
+            className="empty--cart--image"
+            src="/src/assets/empty-cart-image.svg"
+            alt="imagem de carrinho vazio!"
+          />
+
+          <Link to="/" className="back--button">
+            <BackButton />
+          </Link>
+        </div>
+      </StyledBuyConditions>
+    </>
+  );
+};
 
 export default App;

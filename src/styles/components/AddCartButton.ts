@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledButtonPrimary = styled.button`
+export const StyledAddCartButton = styled.button`
   width: 100%;
   display: flex;
   align-items: center;
@@ -26,13 +26,5 @@ export const StyledButtonPrimary = styled.button`
       font-weight: 400;
       line-height: 16px;
     }
-  }
-
-  .label-button {
-    color: #ffffff;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 16px;
-    text-transform: uppercase;
   }
 `;

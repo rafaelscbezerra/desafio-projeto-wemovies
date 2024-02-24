@@ -6,6 +6,15 @@ export const StyledMovieCards = styled.ul`
   gap: 16px;
   padding: 28px 0 76px;
 
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(1, 1fr);
+    padding-top: 0;
+  }
+
   .movie--list--item {
     display: flex;
     flex-direction: column;
@@ -18,7 +27,7 @@ export const StyledMovieCards = styled.ul`
 
     &:hover {
       transform: scale(1.02);
-      filter: drop-shadow(0 0 12px rgba(0, 0, 0, 0.6));
+      filter: drop-shadow(0 0 12px rgba(0, 0, 0, 0.5));
     }
 
     &__image {

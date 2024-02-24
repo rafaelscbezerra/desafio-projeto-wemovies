@@ -12,6 +12,10 @@ export const StyledFinishButton = styled.button`
   padding: 11px;
   transition: ${({ theme }) => theme.transition.default};
 
+  @media (max-width: 700px) {
+    max-width: unset;
+  }
+
   &:hover {
     background: ${({ theme }) => theme.colors.buttonHover};
   }

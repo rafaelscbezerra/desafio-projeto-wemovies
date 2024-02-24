@@ -11,6 +11,7 @@ const ResetStyles = createGlobalStyle`
    background-color: ${({ theme }) => theme.colors.background};
    padding: 0;
    margin: 0;
+   overflow-x: hidden;
  }
 
  ul, ol {

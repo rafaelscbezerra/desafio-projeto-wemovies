@@ -5,6 +5,10 @@ export const StyledCart = styled.div`
   flex-direction: column;
   padding: 28px 0 76px;
 
+  @media (max-width: 600px) {
+    padding: 0 0 16px;
+  }
+
   .cart--content {
     border-radius: ${({ theme }) => theme.borderRadius.default};
     background: ${({ theme }) => theme.colors.white};
@@ -18,6 +22,10 @@ export const StyledCart = styled.div`
       justify-content: space-between;
       gap: 134px;
       padding-bottom: 21px;
+
+      @media (max-width: 962px) {
+        display: none;
+      }
 
       &__text {
         color: ${({ theme }) => theme.colors.secondary};
@@ -36,6 +44,12 @@ export const StyledCart = styled.div`
       display: flex;
       align-items: center;
       justify-content: space-between;
+
+      @media (max-width: 700px) {
+        flex-direction: column-reverse;
+        align-items: flex-end;
+        gap: 16px;
+      }
 
       &__texts {
         display: flex;
@@ -71,22 +85,80 @@ export const StyledCart = styled.div`
       padding-bottom: 21px;
       margin-bottom: 21px;
 
+      @media (max-width: 700px) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      &__mobile {
+        display: none;
+
+        @media (max-width: 700px) {
+          width: 100%;
+          height: 114px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+      }
+
+      &__desktop {
+        @media (max-width: 700px) {
+          display: none;
+        }
+      }
+
       &__wrapper {
         flex: 1;
         display: flex;
         align-items: center;
         gap: 52px;
+
+        @media (max-width: 700px) {
+          width: 100%;
+          flex: unset;
+          align-items: flex-start;
+          gap: 16px;
+        }
+
+        &.mobile {
+          display: none;
+
+          @media (max-width: 700px) {
+            display: flex;
+            justify-content: space-between;
+          }
+        }
+
+        &.desktop {
+          @media (max-width: 700px) {
+            display: none;
+          }
+        }
       }
 
       &__image {
         width: 89px;
-        height: 1 ${({ theme }) => theme.fontSizes.small};
+        height: 114px;
       }
 
       &__texts {
         display: flex;
         flex-direction: column;
         gap: 8px;
+
+        &__mobile {
+          display: flex;
+          align-items: baseline;
+          gap: 20px;
+        }
+
+        @media (max-width: 700px) {
+          flex-direction: row;
+          justify-content: space-between;
+          gap: 16px;
+        }
 
         &__title {
           color: ${({ theme }) => theme.colors.background};
@@ -160,6 +232,20 @@ export const StyledCart = styled.div`
         svg path {
           fill: ${({ theme }) => theme.colors.button};
           transition: ${({ theme }) => theme.transition.default};
+        }
+
+        &.mobile {
+          display: none;
+
+          @media (max-width: 700px) {
+            display: flex;
+          }
+        }
+
+        &.desktop {
+          @media (max-width: 700px) {
+            display: none;
+          }
         }
       }
     }

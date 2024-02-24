@@ -6,6 +6,10 @@ export const StyledHeader = styled.header`
   justify-content: space-between;
   padding: 16px;
 
+  @media (max-width: 600px) {
+    padding: 20px 0;
+  }
+
   .company--name {
     color: ${({ theme }) => theme.colors.white};
     font-size: ${({ theme }) => theme.fontSizes.large};
@@ -48,6 +52,10 @@ export const StyledHeader = styled.header`
         font-size: ${({ theme }) => theme.fontSizes.small};
         font-weight: ${({ theme }) => theme.fontWeight.semibold};
         line-height: ${({ theme }) => theme.lineHeight.small};
+
+        @media (max-width: 600px) {
+          display: none;
+        }
       }
 
       &__description {

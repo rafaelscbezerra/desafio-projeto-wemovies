@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const StyledBuyConditions = styled.div`
   padding: 28px 0 76px;
 
+  @media (max-width: 600px) {
+    padding: 0 0 199px;
+  }
+
   .buy--conditions--content {
     display: flex;
     flex-direction: column;
@@ -11,12 +15,14 @@ export const StyledBuyConditions = styled.div`
     background: ${({ theme }) => theme.colors.white};
     border-radius: ${({ theme }) => theme.borderRadius.default};
     padding: 64px;
+    overflow: hidden;
 
     &__title {
       color: ${({ theme }) => theme.colors.background};
       font-size: ${({ theme }) => theme.fontSizes.large};
       font-weight: ${({ theme }) => theme.fontWeight.bold};
       line-height: ${({ theme }) => theme.lineHeight.large};
+      text-align: center;
     }
 
     .success--buy--image {

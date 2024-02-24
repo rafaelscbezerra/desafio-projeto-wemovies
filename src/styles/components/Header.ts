@@ -7,14 +7,14 @@ export const StyledHeader = styled.header`
   padding: 16px;
 
   .company--name {
-    color: #fff;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 27px;
-    transition: all 0.3s ease;
+    color: ${({ theme }) => theme.colors.white};
+    font-size: ${({ theme }) => theme.fontSizes.large};
+    font-weight: ${({ theme }) => theme.fontWeight.bold};
+    line-height: ${({ theme }) => theme.lineHeight.large};
+    transition: ${({ theme }) => theme.transition.default};
 
     &:hover {
-      color: #009edd;
+      color: ${({ theme }) => theme.colors.button};
     }
   }
 
@@ -22,18 +22,18 @@ export const StyledHeader = styled.header`
     display: flex;
     align-items: center;
     gap: 8px;
-    transition: all 0.3s ease;
+    transition: ${({ theme }) => theme.transition.default};
 
     &:hover {
       .cart--infos {
         &__texts {
           &__description {
-            color: #fff;
+            color: ${({ theme }) => theme.colors.white};
           }
         }
 
         &__icon path {
-          fill: #009edd;
+          fill: ${({ theme }) => theme.colors.button};
         }
       }
     }
@@ -44,24 +44,24 @@ export const StyledHeader = styled.header`
       align-items: flex-end;
 
       &__title {
-        color: #fff;
-        font-size: 14px;
-        font-weight: 600;
-        line-height: 19px;
+        color: ${({ theme }) => theme.colors.white};
+        font-size: ${({ theme }) => theme.fontSizes.small};
+        font-weight: ${({ theme }) => theme.fontWeight.semibold};
+        line-height: ${({ theme }) => theme.lineHeight.small};
       }
 
       &__description {
-        color: #999999;
-        font-size: 12px;
-        font-weight: 600;
-        line-height: 16px;
-        transition: all 0.3s ease;
+        color: ${({ theme }) => theme.colors.secondary};
+        font-size: ${({ theme }) => theme.fontSizes.extrasmall};
+        font-weight: ${({ theme }) => theme.fontWeight.semibold};
+        line-height: ${({ theme }) => theme.lineHeight.extrasmall};
+        transition: ${({ theme }) => theme.transition.default};
       }
     }
 
     &__icon path {
-      fill: #fff;
-      transition: all 0.3s ease;
+      fill: ${({ theme }) => theme.colors.white};
+      transition: ${({ theme }) => theme.transition.default};
     }
   }
 `;

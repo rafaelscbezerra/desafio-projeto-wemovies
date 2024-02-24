@@ -24,9 +24,11 @@ import { CartItem } from "./types";
 //Styles
 import { StyledBuyConditions } from "./styles/pages/BuyConditions";
 import { StyledContainer } from "./styles/container";
+import { StyledLoader } from "./styles/loader";
 
 function App() {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -38,8 +40,10 @@ function App() {
           quantity: 0,
         }));
         setCartItems(moviesQuantity);
+        setLoading(false);
       } catch (error) {
         console.error("Ocorreu um erro ao buscar os filmes:", error);
+        setLoading(false);
       }
     };
 
@@ -57,7 +61,11 @@ function App() {
           <Route
             path="/"
             element={
-              <MovieCards cartItems={cartItems} setCartItems={setCartItems} />
+              loading ? (
+                <Loader />
+              ) : (
+                <MovieCards cartItems={cartItems} setCartItems={setCartItems} />
+              )
             }
           />
           <Route
@@ -77,6 +85,14 @@ function App() {
     </Router>
   );
 }
+
+const Loader = () => {
+  return (
+    <>
+      <StyledLoader></StyledLoader>
+    </>
+  );
+};
 
 const EmptyCart = () => {
   return (

@@ -8,7 +8,7 @@ const ResetStyles = createGlobalStyle`
  html,
  body {
    font-family: 'Open Sans', sans-serif;
-   background-color: #2f2e41;
+   background-color: ${({ theme }) => theme.colors.background};
    padding: 0;
    margin: 0;
  }
@@ -40,10 +40,10 @@ const ResetStyles = createGlobalStyle`
  }
 
  .label--button {
-    color: #ffffff;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 16px;
+    color: ${({ theme }) => theme.colors.white};
+    font-size: ${({ theme }) => theme.fontSizes.extrasmall};
+    font-weight: ${({ theme }) => theme.fontWeight.bold};
+    line-height: ${({ theme }) => theme.lineHeight.extrasmall};
     text-transform: uppercase;
   }
 `;

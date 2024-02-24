@@ -11,10 +11,10 @@ export const StyledMovieCards = styled.ul`
     flex-direction: column;
     align-items: center;
     gap: 7px;
-    border-radius: 4px;
-    background: #ffffff;
+    border-radius: ${({ theme }) => theme.borderRadius.default};
+    background: ${({ theme }) => theme.colors.white};
     padding: 10px 11px;
-    transition: all 0.3s ease;
+    transition: ${({ theme }) => theme.transition.default};
 
     &:hover {
       transform: scale(1.02);
@@ -30,19 +30,19 @@ export const StyledMovieCards = styled.ul`
       padding-bottom: 8px;
 
       &__title {
-        color: #333333;
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px;
+        color: ${({ theme }) => theme.colors.primary};
+        font-size: ${({ theme }) => theme.fontSizes.extrasmall};
+        font-weight: ${({ theme }) => theme.fontWeight.bold};
+        line-height: ${({ theme }) => theme.lineHeight.extrasmall};
         text-align: center;
       }
 
       &__value {
         display: block;
-        color: #2f2e41;
-        font-size: 16px;
-        font-weight: 700;
-        line-height: 22px;
+        color: ${({ theme }) => theme.colors.background};
+        font-size: ${({ theme }) => theme.fontSizes.medium};
+        font-weight: ${({ theme }) => theme.fontWeight.bold};
+        line-height: ${({ theme }) => theme.lineHeight.medium};
         text-align: center;
       }
     }

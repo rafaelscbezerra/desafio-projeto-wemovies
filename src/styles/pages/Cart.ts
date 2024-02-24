@@ -6,8 +6,8 @@ export const StyledCart = styled.div`
   padding: 28px 0 76px;
 
   .cart--content {
-    border-radius: 4px;
-    background: #ffffff;
+    border-radius: ${({ theme }) => theme.borderRadius.default};
+    background: ${({ theme }) => theme.colors.white};
     padding: 24px;
 
     &--header {
@@ -20,10 +20,10 @@ export const StyledCart = styled.div`
       padding-bottom: 21px;
 
       &__text {
-        color: #999999;
-        font-size: 14px;
-        font-weight: 700;
-        line-height: 19px;
+        color: ${({ theme }) => theme.colors.secondary};
+        font-size: ${({ theme }) => theme.fontSizes.small};
+        font-weight: ${({ theme }) => theme.fontWeight.bold};
+        line-height: ${({ theme }) => theme.lineHeight.small};
         text-transform: uppercase;
 
         &:first-of-type {
@@ -43,18 +43,18 @@ export const StyledCart = styled.div`
         gap: 32px;
 
         &__title {
-          color: #999999;
-          font-size: 14px;
-          font-weight: 700;
-          line-height: 19px;
+          color: ${({ theme }) => theme.colors.secondary};
+          font-size: ${({ theme }) => theme.fontSizes.small};
+          font-weight: ${({ theme }) => theme.fontWeight.bold};
+          line-height: ${({ theme }) => theme.lineHeight.small};
           text-transform: uppercase;
         }
 
         &__value {
-          color: #2f2e41;
-          font-size: 24px;
-          font-weight: 700;
-          line-height: 33px;
+          color: ${({ theme }) => theme.colors.background};
+          font-size: ${({ theme }) => theme.fontSizes.extralarge};
+          font-weight: ${({ theme }) => theme.fontWeight.bold};
+          line-height: ${({ theme }) => theme.lineHeight.extralarge};
         }
       }
     }
@@ -67,7 +67,7 @@ export const StyledCart = styled.div`
       align-items: center;
       justify-content: space-between;
       gap: 52px;
-      border-bottom: 1px solid #999999;
+      border-bottom: 1px solid ${({ theme }) => theme.colors.secondary};
       padding-bottom: 21px;
       margin-bottom: 21px;
 
@@ -80,7 +80,7 @@ export const StyledCart = styled.div`
 
       &__image {
         width: 89px;
-        height: 114px;
+        height: 1 ${({ theme }) => theme.fontSizes.small};
       }
 
       &__texts {
@@ -89,18 +89,18 @@ export const StyledCart = styled.div`
         gap: 8px;
 
         &__title {
-          color: #2f2e41;
-          font-size: 14px;
-          font-weight: 700;
-          line-height: 19px;
+          color: ${({ theme }) => theme.colors.background};
+          font-size: ${({ theme }) => theme.fontSizes.small};
+          font-weight: ${({ theme }) => theme.fontWeight.bold};
+          line-height: ${({ theme }) => theme.lineHeight.small};
         }
 
         &__value {
           display: block;
-          color: #2f2e41;
-          font-size: 16px;
-          font-weight: 700;
-          line-height: 22px;
+          color: ${({ theme }) => theme.colors.background};
+          font-size: ${({ theme }) => theme.fontSizes.medium};
+          font-weight: ${({ theme }) => theme.fontWeight.bold};
+          line-height: ${({ theme }) => theme.lineHeight.medium};
         }
       }
 
@@ -116,14 +116,14 @@ export const StyledCart = styled.div`
             }
 
             .movie--list--item__quantity__options__plus path {
-              fill: #039b00;
+              fill: ${({ theme }) => theme.colors.buttonHover};
             }
           }
 
           &__minus path,
           &__plus path {
-            fill: #009edd;
-            transition: all 0.3s ease;
+            fill: ${({ theme }) => theme.colors.button};
+            transition: ${({ theme }) => theme.transition.default};
           }
         }
 
@@ -133,21 +133,21 @@ export const StyledCart = styled.div`
           display: flex;
           align-items: center;
           justify-content: center;
-          color: #2f2e41;
-          font-size: 14px;
-          font-weight: 400;
-          line-height: 19px;
+          color: ${({ theme }) => theme.colors.background};
+          font-size: ${({ theme }) => theme.fontSizes.small};
+          font-weight: ${({ theme }) => theme.fontWeight.regular};
+          line-height: ${({ theme }) => theme.lineHeight.small};
           text-align: center;
           border: 1px solid #d9d9d9;
-          border-radius: 4px;
+          border-radius: ${({ theme }) => theme.borderRadius.default};
         }
       }
 
       &__subtotal {
-        color: #2f2e41;
-        font-size: 16px;
-        font-weight: 700;
-        line-height: 22px;
+        color: ${({ theme }) => theme.colors.background};
+        font-size: ${({ theme }) => theme.fontSizes.medium};
+        font-weight: ${({ theme }) => theme.fontWeight.bold};
+        line-height: ${({ theme }) => theme.lineHeight.medium};
       }
 
       &__remove {
@@ -158,8 +158,8 @@ export const StyledCart = styled.div`
         }
 
         svg path {
-          fill: #009edd;
-          transition: all 0.3s ease;
+          fill: ${({ theme }) => theme.colors.button};
+          transition: ${({ theme }) => theme.transition.default};
         }
       }
     }

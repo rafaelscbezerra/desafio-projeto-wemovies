@@ -8,15 +8,15 @@ export const StyledBuyConditions = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 32px;
-    background: #ffffff;
-    border-radius: 4px;
+    background: ${({ theme }) => theme.colors.white};
+    border-radius: ${({ theme }) => theme.borderRadius.default};
     padding: 64px;
 
     &__title {
-      color: #2f2e41;
-      font-size: 20px;
-      font-weight: 700;
-      line-height: 27px;
+      color: ${({ theme }) => theme.colors.background};
+      font-size: ${({ theme }) => theme.fontSizes.large};
+      font-weight: ${({ theme }) => theme.fontWeight.bold};
+      line-height: ${({ theme }) => theme.lineHeight.large};
     }
 
     .success--buy--image {

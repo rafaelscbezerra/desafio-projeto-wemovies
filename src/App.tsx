@@ -24,9 +24,11 @@ import { CartItem } from "./types";
 
 //Styles
 import { StyledContainer } from "./styles/container";
-import { StyledBuyConditions } from "./styles/pages/BuyConditions";
-import { StyledBuyConditionsContent } from "./styles/pages/BuyConditions";
-import { StyledBuyConditionsContentTitle } from "./styles/pages/BuyConditions";
+import {
+  StyledBuyConditions,
+  StyledBuyConditionsContent,
+  StyledBuyConditionsContentTitle,
+} from "./styles/pages/BuyConditions";
 
 function App() {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);

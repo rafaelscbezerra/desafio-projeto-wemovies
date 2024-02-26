@@ -1,8 +1,7 @@
 import React from "react";
 
 //Styles
-import { PrimaryButton } from "../styles/components/PrimaryButton";
-import { LabelButton } from "../styles/components/PrimaryButton";
+import { PrimaryButton, LabelButton } from "../styles/components/PrimaryButton";
 
 const BackButton: React.FC = () => {
   return (

@@ -10,7 +10,22 @@ import useCart from "./useCart";
 import { CartProps } from "../../types";
 
 //Styles
-import { StyledCart } from "../../styles/pages/Cart";
+import {
+  StyledCart,
+  StyledCartContent,
+  StyledCartContentHeader,
+  StyledCartContentHeaderText,
+  StyledMovieListItem,
+  StyledMovieListItemTexts,
+  StyledMovieListItemTextsTitle,
+  StyledMovieListItemTextsValue,
+  StyledMovieListItemQuantity,
+  StyledMovieListItemQuantityCounter,
+  StyledCartContentTotals,
+  StyledCartContentTotalsTexts,
+  StyledCartContentTotalsTextsTitle,
+  StyledCartContentTotalsTextsValue,
+} from "../../styles/pages/Cart";
 
 const Cart: React.FC<CartProps> = ({ cartItems, setCartItems }) => {
   const {
@@ -24,43 +39,44 @@ const Cart: React.FC<CartProps> = ({ cartItems, setCartItems }) => {
 
   return (
     <StyledCart>
-      <div className="cart--content">
-        <div className="cart--content--header">
-          <p className="cart--content--header__text">Produto</p>
-          <p className="cart--content--header__text">Qtde</p>
-          <p className="cart--content--header__text">Subtotal</p>
-        </div>
+      <StyledCartContent>
+        <StyledCartContentHeader>
+          <StyledCartContentHeaderText>Produto</StyledCartContentHeaderText>
+          <StyledCartContentHeaderText>Qtde</StyledCartContentHeaderText>
+          <StyledCartContentHeaderText>Subtotal</StyledCartContentHeaderText>
+        </StyledCartContentHeader>
+
         <ul className="movie--list">
           {selectedItems.map((item, index) => (
-            <li className="movie--list--item" key={index}>
+            <StyledMovieListItem key={index}>
               <div className="movie--list--item__wrapper">
                 <img
                   className="movie--list--item__image"
                   src={item.image}
                   alt={item.title}
                 />
+
                 <div className="movie--list--item__desktop">
-                  <div className="movie--list--item__texts">
-                    <p className="movie--list--item__texts__title">
+                  <StyledMovieListItemTexts>
+                    <StyledMovieListItemTextsTitle>
                       {item.title}
-                    </p>
-                    <span className="movie--list--item__texts__value">
+                    </StyledMovieListItemTextsTitle>
+                    <StyledMovieListItemTextsValue>
                       R$ {item.price.toFixed(2)}
-                    </span>
-                  </div>
+                    </StyledMovieListItemTextsValue>
+                  </StyledMovieListItemTexts>
                 </div>
 
                 <div className="movie--list--item__mobile">
-                  <div className="movie--list--item__texts">
+                  <StyledMovieListItemTexts>
                     <div className="movie--list--item__texts__mobile">
-                      <p className="movie--list--item__texts__title">
+                      <StyledMovieListItemTextsTitle>
                         {item.title}
-                      </p>
-                      <span className="movie--list--item__texts__value">
+                      </StyledMovieListItemTextsTitle>
+                      <StyledMovieListItemTextsValue>
                         R$ {item.price.toFixed(2)}
-                      </span>
+                      </StyledMovieListItemTextsValue>
                     </div>
-
                     <button
                       className="movie--list--item__remove mobile"
                       onClick={() => handleRemoveItem(item.id)}
@@ -78,10 +94,9 @@ const Cart: React.FC<CartProps> = ({ cartItems, setCartItems }) => {
                         />
                       </svg>
                     </button>
-                  </div>
-
+                  </StyledMovieListItemTexts>
                   <div className="movie--list--item__wrapper mobile">
-                    <div className="movie--list--item__quantity">
+                    <StyledMovieListItemQuantity>
                       <button
                         className="movie--list--item__quantity__options"
                         onClick={() => handleDecrementQuantity(item.id)}
@@ -101,9 +116,9 @@ const Cart: React.FC<CartProps> = ({ cartItems, setCartItems }) => {
                         </svg>
                       </button>
 
-                      <span className="movie--list--item__quantity__counter">
+                      <StyledMovieListItemQuantityCounter>
                         {item.quantity}
-                      </span>
+                      </StyledMovieListItemQuantityCounter>
 
                       <button
                         className="movie--list--item__quantity__options"
@@ -123,20 +138,22 @@ const Cart: React.FC<CartProps> = ({ cartItems, setCartItems }) => {
                           />
                         </svg>
                       </button>
-                    </div>
+                    </StyledMovieListItemQuantity>
 
                     <div className="movie--list--item__subtotal__mobile">
-                      <p className="cart--content--header__text">Subtotal</p>
-                      <p className="movie--list--item__subtotal">
+                      <StyledCartContentHeaderText>
+                        Subtotal
+                      </StyledCartContentHeaderText>
+                      <StyledMovieListItemTextsValue>
                         R$ {(subtotals[item.id] || 0).toFixed(2)}
-                      </p>
+                      </StyledMovieListItemTextsValue>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div className="movie--list--item__wrapper desktop">
-                <div className="movie--list--item__quantity">
+                <StyledMovieListItemQuantity>
                   <button
                     className="movie--list--item__quantity__options"
                     onClick={() => handleDecrementQuantity(item.id)}
@@ -156,9 +173,9 @@ const Cart: React.FC<CartProps> = ({ cartItems, setCartItems }) => {
                     </svg>
                   </button>
 
-                  <span className="movie--list--item__quantity__counter">
+                  <StyledMovieListItemQuantityCounter>
                     {item.quantity}
-                  </span>
+                  </StyledMovieListItemQuantityCounter>
 
                   <button
                     className="movie--list--item__quantity__options"
@@ -178,11 +195,10 @@ const Cart: React.FC<CartProps> = ({ cartItems, setCartItems }) => {
                       />
                     </svg>
                   </button>
-                </div>
-
-                <p className="movie--list--item__subtotal">
+                </StyledMovieListItemQuantity>
+                <StyledMovieListItemTextsValue>
                   R$ {(subtotals[item.id] || 0).toFixed(2)}
-                </p>
+                </StyledMovieListItemTextsValue>
               </div>
 
               <button
@@ -202,25 +218,27 @@ const Cart: React.FC<CartProps> = ({ cartItems, setCartItems }) => {
                   />
                 </svg>
               </button>
-            </li>
+            </StyledMovieListItem>
           ))}
         </ul>
 
-        <div className="cart--content--totals">
+        <StyledCartContentTotals>
           <FinishButton onClick={handleFinishButtonClick} />
 
-          <div className="cart--content--totals__texts">
-            <span className="cart--content--totals__texts__title">Total</span>
-            <span className="cart--content--totals__texts__value">
+          <StyledCartContentTotalsTexts>
+            <StyledCartContentTotalsTextsTitle>
+              Total
+            </StyledCartContentTotalsTextsTitle>
+            <StyledCartContentTotalsTextsValue>
               R${" "}
               {(
                 Object.values(subtotals).reduce((acc, curr) => acc + curr, 0) ||
                 0
               ).toFixed(2)}
-            </span>
-          </div>
-        </div>
-      </div>
+            </StyledCartContentTotalsTextsValue>
+          </StyledCartContentTotalsTexts>
+        </StyledCartContentTotals>
+      </StyledCartContent>
     </StyledCart>
   );
 };

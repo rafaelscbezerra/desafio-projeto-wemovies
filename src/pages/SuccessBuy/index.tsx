@@ -5,9 +5,11 @@ import { Link } from "react-router-dom";
 import BackButton from "../../components/BackButton";
 
 //Styles
-import { StyledBuyConditions } from "../../styles/pages/BuyConditions";
-import { StyledBuyConditionsContent } from "../../styles/pages/BuyConditions";
-import { StyledBuyConditionsContentTitle } from "../../styles/pages/BuyConditions";
+import {
+  StyledBuyConditions,
+  StyledBuyConditionsContent,
+  StyledBuyConditionsContentTitle,
+} from "../../styles/pages/BuyConditions";
 
 const SuccessBuyPage: React.FC = () => {
   return (

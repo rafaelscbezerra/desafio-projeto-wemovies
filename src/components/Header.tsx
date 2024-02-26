@@ -5,12 +5,14 @@ import { useNavigate } from "react-router-dom";
 import { HeaderProps } from "../types";
 
 //Styles
-import { StyledHeader } from "../styles/components/Header";
-import { StyledCompanyName } from "../styles/components/Header";
-import { StyledCartInfos } from "../styles/components/Header";
-import { StyledCartInfosTexts } from "../styles/components/Header";
-import { StyledCartInfosTextsTitle } from "../styles/components/Header";
-import { StyledCartInfosTextsDescription } from "../styles/components/Header";
+import {
+  StyledHeader,
+  StyledCompanyName,
+  StyledCartInfos,
+  StyledCartInfosTexts,
+  StyledCartInfosTextsTitle,
+  StyledCartInfosTextsDescription,
+} from "../styles/components/Header";
 
 function Header({ cartItems }: HeaderProps) {
   const navigate = useNavigate();

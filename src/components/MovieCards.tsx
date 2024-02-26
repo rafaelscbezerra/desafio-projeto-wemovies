@@ -8,10 +8,12 @@ import { Movie } from "../types";
 import { CartProps } from "../types";
 
 //Styles
-import { StyledMovieCards } from "../styles/components/MovieCards";
-import { StyledMovieListItem } from "../styles/components/MovieCards";
-import { StyledMovieListItemTitle } from "../styles/components/MovieCards";
-import { StyledMovieListItemValue } from "../styles/components/MovieCards";
+import {
+  StyledMovieCards,
+  StyledMovieListItem,
+  StyledMovieListItemTitle,
+  StyledMovieListItemValue,
+} from "../styles/components/MovieCards";
 
 const MovieCards: React.FC<CartProps> = ({ setCartItems }) => {
   const [movies, setMovies] = useState<Movie[]>([]);

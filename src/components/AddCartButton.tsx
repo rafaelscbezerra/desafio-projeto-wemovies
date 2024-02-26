@@ -1,10 +1,12 @@
 import React from "react";
 
 //Styles
-import { PrimaryButton } from "../styles/components/PrimaryButton";
-import { MiniCart } from "../styles/components/PrimaryButton";
-import { Counter } from "../styles/components/PrimaryButton";
-import { LabelButton } from "../styles/components/PrimaryButton";
+import {
+  PrimaryButton,
+  MiniCart,
+  Counter,
+  LabelButton,
+} from "../styles/components/PrimaryButton";
 
 //Types
 import { AddCartButtonProps } from "../types";

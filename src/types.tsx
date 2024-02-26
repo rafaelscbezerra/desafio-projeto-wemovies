@@ -13,3 +13,21 @@ export interface CartItem {
   quantity: number;
   image: string;
 }
+
+export interface HeaderProps {
+  cartItems: CartItem[];
+}
+
+export interface AddCartButtonProps {
+  onClick: () => void;
+  cartQuantity: number;
+}
+
+export interface FinishButtonProps {
+  onClick: () => void;
+}
+
+export interface CartProps {
+  cartItems: CartItem[];
+  setCartItems: React.Dispatch<React.SetStateAction<CartItem[]>>;
+}

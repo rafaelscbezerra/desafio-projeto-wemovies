@@ -14,6 +14,10 @@ export const StyledCart = styled.div`
     background: ${({ theme }) => theme.colors.white};
     padding: 24px;
 
+    @media (max-width: 700px) {
+      padding: 16px;
+    }
+
     &--header {
       max-width: 674px;
       width: 100%;
@@ -33,6 +37,11 @@ export const StyledCart = styled.div`
         font-weight: ${({ theme }) => theme.fontWeight.bold};
         line-height: ${({ theme }) => theme.lineHeight.small};
         text-transform: uppercase;
+
+        @media (max-width: 700px) {
+          font-size: ${({ theme }) => theme.fontSizes.extrasmall};
+          line-height: ${({ theme }) => theme.lineHeight.extrasmall};
+        }
 
         &:first-of-type {
           flex: 1;
@@ -56,6 +65,10 @@ export const StyledCart = styled.div`
         align-items: center;
         gap: 32px;
 
+        @media (max-width: 700px) {
+          padding-right: 16px;
+        }
+
         &__title {
           color: ${({ theme }) => theme.colors.secondary};
           font-size: ${({ theme }) => theme.fontSizes.small};
@@ -70,6 +83,10 @@ export const StyledCart = styled.div`
           font-weight: ${({ theme }) => theme.fontWeight.bold};
           line-height: ${({ theme }) => theme.lineHeight.extralarge};
         }
+      }
+
+      button {
+        max-width: 235px;
       }
     }
   }
@@ -96,7 +113,7 @@ export const StyledCart = styled.div`
 
         @media (max-width: 700px) {
           width: 100%;
-          height: 114px;
+          height: 82px;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
@@ -140,6 +157,11 @@ export const StyledCart = styled.div`
       &__image {
         width: 89px;
         height: 114px;
+
+        @media (max-width: 700px) {
+          width: 64px;
+          height: 82px;
+        }
       }
 
       &__texts {

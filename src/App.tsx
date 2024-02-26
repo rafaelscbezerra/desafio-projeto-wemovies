@@ -9,13 +9,14 @@ import {
 } from "react-router-dom";
 
 //Pages
-import Cart from "./Cart";
-import SuccessBuy from "./SuccessBuy";
+import Cart from "./pages/Cart";
+import SuccessBuy from "./pages/SuccessBuy";
 
 //Components
 import Header from "./components/Header";
 import MovieCards from "./components/MovieCards";
 import BackButton from "./components/BackButton";
+import Loader from "./components/Loader";
 
 //Types
 import { Movie } from "./types";
@@ -24,7 +25,6 @@ import { CartItem } from "./types";
 //Styles
 import { StyledBuyConditions } from "./styles/pages/BuyConditions";
 import { StyledContainer } from "./styles/container";
-import { StyledLoader } from "./styles/loader";
 
 function App() {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
@@ -86,34 +86,24 @@ function App() {
   );
 }
 
-const Loader = () => {
-  return (
-    <>
-      <StyledLoader></StyledLoader>
-    </>
-  );
-};
-
 const EmptyCart = () => {
   return (
-    <>
-      <StyledBuyConditions>
-        <div className="buy--conditions--content">
-          <p className="buy--conditions--content__title">
-            Parece que não há nada por aqui :(
-          </p>
-          <img
-            className="empty--cart--image"
-            src="/src/assets/empty-cart-image.svg"
-            alt="imagem de carrinho vazio!"
-          />
+    <StyledBuyConditions>
+      <div className="buy--conditions--content">
+        <p className="buy--conditions--content__title">
+          Parece que não há nada por aqui :(
+        </p>
+        <img
+          className="empty--cart--image"
+          src="/src/assets/empty-cart-image.svg"
+          alt="imagem de carrinho vazio!"
+        />
 
-          <Link to="/" className="back--button">
-            <BackButton />
-          </Link>
-        </div>
-      </StyledBuyConditions>
-    </>
+        <Link to="/" className="back--button">
+          <BackButton />
+        </Link>
+      </div>
+    </StyledBuyConditions>
   );
 };
 

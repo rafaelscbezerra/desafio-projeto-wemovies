@@ -1,19 +1,17 @@
 import React from "react";
 
 //Styles
-import { StyledAddCartButton } from "../styles/components/AddCartButton";
+import { StyledPrimaryButton } from "../styles/components/PrimaryButton";
 
-interface AddCartButtonProps {
-  onClick: () => void;
-  cartQuantity: number;
-}
+//Types
+import { AddCartButtonProps } from "../types";
 
 const AddCartButton: React.FC<AddCartButtonProps> = ({
   onClick,
   cartQuantity,
 }) => {
   return (
-    <StyledAddCartButton onClick={onClick}>
+    <StyledPrimaryButton onClick={onClick}>
       <div className="mini-cart--infos">
         <img
           className="mini-cart--infos__icon"
@@ -23,7 +21,7 @@ const AddCartButton: React.FC<AddCartButtonProps> = ({
         <span className="mini-cart--infos__counter">{cartQuantity}</span>
       </div>
       <p className="label--button">Adicionar ao carrinho</p>
-    </StyledAddCartButton>
+    </StyledPrimaryButton>
   );
 };
 

@@ -5,17 +5,12 @@ import AddCartButton from "./AddCartButton";
 
 //Types
 import { Movie } from "../types";
-import { CartItem } from "../types";
+import { CartProps } from "../types";
 
 //Styles
 import { StyledMovieCards } from "../styles/components/MovieCards";
 
-interface MovieCardsProps {
-  cartItems: CartItem[];
-  setCartItems: React.Dispatch<React.SetStateAction<CartItem[]>>;
-}
-
-const MovieCards: React.FC<MovieCardsProps> = ({ setCartItems }) => {
+const MovieCards: React.FC<CartProps> = ({ setCartItems }) => {
   const [movies, setMovies] = useState<Movie[]>([]);
 
   useEffect(() => {
@@ -45,30 +40,28 @@ const MovieCards: React.FC<MovieCardsProps> = ({ setCartItems }) => {
   };
 
   return (
-    <>
-      <StyledMovieCards>
-        {movies.map((movie) => (
-          <li className="movie--list--item" key={movie.id}>
-            <img
-              className="movie--list--item__image"
-              src={movie.image}
-              alt={movie.title}
-            />
-            <div className="movie--list--item__texts">
-              <p className="movie--list--item__texts__title">{movie.title}</p>
-              <span className="movie--list--item__texts__value">
-                Preço: R$ {movie.price.toFixed(2)}
-              </span>
-            </div>
+    <StyledMovieCards>
+      {movies.map((movie) => (
+        <li className="movie--list--item" key={movie.id}>
+          <img
+            className="movie--list--item__image"
+            src={movie.image}
+            alt={movie.title}
+          />
+          <div className="movie--list--item__texts">
+            <p className="movie--list--item__texts__title">{movie.title}</p>
+            <span className="movie--list--item__texts__value">
+              Preço: R$ {movie.price.toFixed(2)}
+            </span>
+          </div>
 
-            <AddCartButton
-              onClick={() => handleAddToCart(movie.id)}
-              cartQuantity={movie.quantity}
-            />
-          </li>
-        ))}
-      </StyledMovieCards>
-    </>
+          <AddCartButton
+            onClick={() => handleAddToCart(movie.id)}
+            cartQuantity={movie.quantity}
+          />
+        </li>
+      ))}
+    </StyledMovieCards>
   );
 };
 

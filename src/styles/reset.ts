@@ -39,14 +39,6 @@ const ResetStyles = createGlobalStyle`
  p {
   margin: unset;
  }
-
- .label--button {
-    color: ${({ theme }) => theme.colors.white};
-    font-size: ${({ theme }) => theme.fontSizes.extrasmall};
-    font-weight: ${({ theme }) => theme.fontWeight.bold};
-    line-height: ${({ theme }) => theme.lineHeight.extrasmall};
-    text-transform: uppercase;
-  }
 `;
 
 export default ResetStyles;

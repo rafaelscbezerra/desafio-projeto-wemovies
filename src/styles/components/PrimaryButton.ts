@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledAddCartButton = styled.button`
+export const StyledPrimaryButton = styled.button`
   width: 100%;
   display: flex;
   align-items: center;
@@ -26,5 +26,13 @@ export const StyledAddCartButton = styled.button`
       font-weight: ${({ theme }) => theme.fontWeight.regular};
       line-height: ${({ theme }) => theme.lineHeight.extrasmall};
     }
+  }
+
+  .label--button {
+    color: ${({ theme }) => theme.colors.white};
+    font-size: ${({ theme }) => theme.fontSizes.extrasmall};
+    font-weight: ${({ theme }) => theme.fontWeight.bold};
+    line-height: ${({ theme }) => theme.lineHeight.extrasmall};
+    text-transform: uppercase;
   }
 `;

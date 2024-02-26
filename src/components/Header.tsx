@@ -6,6 +6,11 @@ import { HeaderProps } from "../types";
 
 //Styles
 import { StyledHeader } from "../styles/components/Header";
+import { StyledCompanyName } from "../styles/components/Header";
+import { StyledCartInfos } from "../styles/components/Header";
+import { StyledCartInfosTexts } from "../styles/components/Header";
+import { StyledCartInfosTextsTitle } from "../styles/components/Header";
+import { StyledCartInfosTextsDescription } from "../styles/components/Header";
 
 function Header({ cartItems }: HeaderProps) {
   const navigate = useNavigate();
@@ -28,18 +33,15 @@ function Header({ cartItems }: HeaderProps) {
 
   return (
     <StyledHeader>
-      <a className="company--name" href="/">
-        WeMovies
-      </a>
+      <StyledCompanyName href="/">WeMovies</StyledCompanyName>
 
-      <a href="/" className="cart--infos" onClick={handleCartClick}>
-        <div className="cart--infos__texts">
-          <p className="cart--infos__texts__title">Meu Carrinho</p>
-          <span className="cart--infos__texts__description">
+      <StyledCartInfos href="#" onClick={handleCartClick}>
+        <StyledCartInfosTexts>
+          <StyledCartInfosTextsTitle>Meu Carrinho</StyledCartInfosTextsTitle>
+          <StyledCartInfosTextsDescription>
             {totalItems} {totalItems === 1 ? "item" : "itens"}
-          </span>
-        </div>
-
+          </StyledCartInfosTextsDescription>
+        </StyledCartInfosTexts>
         <svg
           className="cart--infos__icon"
           width="30"
@@ -53,7 +55,7 @@ function Header({ cartItems }: HeaderProps) {
             fill="currentColor"
           />
         </svg>
-      </a>
+      </StyledCartInfos>
     </StyledHeader>
   );
 }

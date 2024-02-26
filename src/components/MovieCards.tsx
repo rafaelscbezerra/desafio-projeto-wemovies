@@ -9,6 +9,9 @@ import { CartProps } from "../types";
 
 //Styles
 import { StyledMovieCards } from "../styles/components/MovieCards";
+import { StyledMovieListItem } from "../styles/components/MovieCards";
+import { StyledMovieListItemTitle } from "../styles/components/MovieCards";
+import { StyledMovieListItemValue } from "../styles/components/MovieCards";
 
 const MovieCards: React.FC<CartProps> = ({ setCartItems }) => {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -42,24 +45,23 @@ const MovieCards: React.FC<CartProps> = ({ setCartItems }) => {
   return (
     <StyledMovieCards>
       {movies.map((movie) => (
-        <li className="movie--list--item" key={movie.id}>
+        <StyledMovieListItem key={movie.id}>
           <img
             className="movie--list--item__image"
             src={movie.image}
             alt={movie.title}
           />
           <div className="movie--list--item__texts">
-            <p className="movie--list--item__texts__title">{movie.title}</p>
-            <span className="movie--list--item__texts__value">
+            <StyledMovieListItemTitle>{movie.title}</StyledMovieListItemTitle>
+            <StyledMovieListItemValue>
               Preço: R$ {movie.price.toFixed(2)}
-            </span>
+            </StyledMovieListItemValue>
           </div>
-
           <AddCartButton
             onClick={() => handleAddToCart(movie.id)}
             cartQuantity={movie.quantity}
           />
-        </li>
+        </StyledMovieListItem>
       ))}
     </StyledMovieCards>
   );

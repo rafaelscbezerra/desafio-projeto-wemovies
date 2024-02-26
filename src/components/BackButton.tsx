@@ -1,13 +1,14 @@
 import React from "react";
 
 //Styles
-import { StyledPrimaryButton } from "../styles/components/PrimaryButton";
+import { PrimaryButton } from "../styles/components/PrimaryButton";
+import { LabelButton } from "../styles/components/PrimaryButton";
 
 const BackButton: React.FC = () => {
   return (
-    <StyledPrimaryButton>
-      <p className="label--button">Voltar</p>
-    </StyledPrimaryButton>
+    <PrimaryButton>
+      <LabelButton>Voltar</LabelButton>
+    </PrimaryButton>
   );
 };
 

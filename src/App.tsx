@@ -23,8 +23,10 @@ import { Movie } from "./types";
 import { CartItem } from "./types";
 
 //Styles
-import { StyledBuyConditions } from "./styles/pages/BuyConditions";
 import { StyledContainer } from "./styles/container";
+import { StyledBuyConditions } from "./styles/pages/BuyConditions";
+import { StyledBuyConditionsContent } from "./styles/pages/BuyConditions";
+import { StyledBuyConditionsContentTitle } from "./styles/pages/BuyConditions";
 
 function App() {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
@@ -89,20 +91,19 @@ function App() {
 const EmptyCart = () => {
   return (
     <StyledBuyConditions>
-      <div className="buy--conditions--content">
-        <p className="buy--conditions--content__title">
+      <StyledBuyConditionsContent>
+        <StyledBuyConditionsContentTitle>
           Parece que não há nada por aqui :(
-        </p>
+        </StyledBuyConditionsContentTitle>
         <img
           className="empty--cart--image"
           src="/src/assets/empty-cart-image.svg"
           alt="imagem de carrinho vazio!"
         />
-
         <Link to="/" className="back--button">
           <BackButton />
         </Link>
-      </div>
+      </StyledBuyConditionsContent>
     </StyledBuyConditions>
   );
 };

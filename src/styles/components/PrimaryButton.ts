@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledPrimaryButton = styled.button`
+export const PrimaryButton = styled.button`
   width: 100%;
   display: flex;
   align-items: center;
@@ -14,25 +14,25 @@ export const StyledPrimaryButton = styled.button`
   &:hover {
     background: ${({ theme }) => theme.colors.buttonHover};
   }
+`;
 
-  .mini-cart--infos {
-    display: flex;
-    align-items: center;
-    gap: 3px;
+export const MiniCart = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 3px;
+`;
 
-    &__counter {
-      color: ${({ theme }) => theme.colors.white};
-      font-size: ${({ theme }) => theme.fontSizes.extrasmall};
-      font-weight: ${({ theme }) => theme.fontWeight.regular};
-      line-height: ${({ theme }) => theme.lineHeight.extrasmall};
-    }
-  }
+export const Counter = styled.span`
+  color: ${({ theme }) => theme.colors.white};
+  font-size: ${({ theme }) => theme.fontSizes.extrasmall};
+  font-weight: ${({ theme }) => theme.fontWeight.regular};
+  line-height: ${({ theme }) => theme.lineHeight.extrasmall};
+`;
 
-  .label--button {
-    color: ${({ theme }) => theme.colors.white};
-    font-size: ${({ theme }) => theme.fontSizes.extrasmall};
-    font-weight: ${({ theme }) => theme.fontWeight.bold};
-    line-height: ${({ theme }) => theme.lineHeight.extrasmall};
-    text-transform: uppercase;
-  }
+export const LabelButton = styled.p`
+  color: ${({ theme }) => theme.colors.white};
+  font-size: ${({ theme }) => theme.fontSizes.extrasmall};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  line-height: ${({ theme }) => theme.lineHeight.extrasmall};
+  text-transform: uppercase;
 `;

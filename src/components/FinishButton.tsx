@@ -1,16 +1,17 @@
 import React from "react";
 
 //Styles
-import { StyledPrimaryButton } from "../styles/components/PrimaryButton";
+import { PrimaryButton } from "../styles/components/PrimaryButton";
+import { LabelButton } from "../styles/components/PrimaryButton";
 
 //Types
 import { FinishButtonProps } from "../types";
 
 const FinishButton: React.FC<FinishButtonProps> = ({ onClick }) => {
   return (
-    <StyledPrimaryButton onClick={onClick}>
-      <p className="label--button">Finalizar pedido</p>
-    </StyledPrimaryButton>
+    <PrimaryButton onClick={onClick}>
+      <LabelButton>Finalizar pedido</LabelButton>
+    </PrimaryButton>
   );
 };
 

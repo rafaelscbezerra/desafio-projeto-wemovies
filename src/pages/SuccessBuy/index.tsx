@@ -6,24 +6,25 @@ import BackButton from "../../components/BackButton";
 
 //Styles
 import { StyledBuyConditions } from "../../styles/pages/BuyConditions";
+import { StyledBuyConditionsContent } from "../../styles/pages/BuyConditions";
+import { StyledBuyConditionsContentTitle } from "../../styles/pages/BuyConditions";
 
 const SuccessBuyPage: React.FC = () => {
   return (
     <StyledBuyConditions>
-      <div className="buy--conditions--content">
-        <p className="buy--conditions--content__title">
+      <StyledBuyConditionsContent>
+        <StyledBuyConditionsContentTitle>
           Compra realizada com sucesso!
-        </p>
+        </StyledBuyConditionsContentTitle>
         <img
           className="success--buy--image"
           src="/src/assets/success-buy-image.svg"
           alt="imagem de compra realizada com sucesso!"
         />
-
         <Link to="/" className="back--button">
           <BackButton />
         </Link>
-      </div>
+      </StyledBuyConditionsContent>
     </StyledBuyConditions>
   );
 };

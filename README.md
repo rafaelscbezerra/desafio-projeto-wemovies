@@ -1,7 +1,7 @@
 # PS:
 
-> To init json-server use this: npx json-server server.json
-> We recommend pnpm to download the dependencies
+To init json-server use this: npx json-server server.json.
+We recommend pnpm to download the dependencies.
 
 # React + TypeScript + Vite + Styled Components
 
